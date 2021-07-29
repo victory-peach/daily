@@ -1,0 +1,55 @@
+.wrapper {
+    width: 99%;
+    margin: 8px auto;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+ul {
+    padding: 0;
+}
+
+ul li {
+    display: inline-block;
+    width: 90px;
+    height: 45px;
+    border: 1px solid #ddd;
+    /* background-color: #ddd; */
+    border-radius: 10px;
+    margin-right: 10px;
+    line-height: 45px;
+    margin-bottom: 20px;
+}
+
+ul li.change {
+    background-color: red;
+}
+
+.wrapper button {
+    outline: none;
+    width: 90px;
+    height: 45px;
+    border: 1px solid #ddd;
+    background-color: #ddd;
+    border-radius: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.wrapper .show {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #ddd;
+    margin: 30px auto;
+    padding: 10px 0;
+}
+
+span {
+    display: block;
+    margin-bottom: 20px;
+}
+
+span.luckNum {
+    font-size: 36px;
+    color: red;
+}
