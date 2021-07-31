@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    ul {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -153px;
+        margin-top: -153px;
+        padding: 0;
+        text-align: center;
+        width: 306px;
+        height: 306px;
+        border: 1px solid #ddd;
+    }
+    
+    li {
+        list-style: none;
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        border: 1px solid #ddd;
+        float: left;
+    }
+    
+    li#start {
+        cursor: pointer;
+    }
+    
+    li.change {
+        background-color: red;
+    }
+</style>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li id="start">抽奖</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+    </ul>
+</body>
+<script>
+    start.onclick = function() {
+        var start = document.getElementById('start');
+        var lis = document.getElementsByTagName('li');
+        var arr = [0, 1, 2, 5, 8, 7, 6, 3];
+        var target = Math.floor(Math.random() * 8)
+        var liList = [];
+        for (let i = 0; i < arr.length; i++) {
+            liList.push(lis[arr[i]]);
+        }
+        var circle = 0;
+        var now = 0;
+        console.log(target);
+
+        function animate(index) {
+            for (let i = 0; i < liList.length; i++) {
+                liList[i].className = '';
+            }
+            liList[index].className = 'change';
+        }
+
+        function changeSpeed(speed) {
+            if (circle != 50) {
+                if (speed > 100) {
+                    speed -= 50;
+                }
+                circle++;
+            } else {
+                if (speed < 500) {
+                    speed += 50;
+                } else {
+                    console.log('==');
+                    console.log(now);
+                    if ((now % 8) == target) {
+                        console.log(now);
+                        return;
+                    }
+                }
+            }
+            animate(now % 8);
+            now++;
+            setTimeout(function() {
+                changeSpeed(speed);
+            }, speed)
+        }
+        changeSpeed(500);
+    }
+</script>
+
+</html>
